@@ -1,0 +1,14 @@
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\bin\Debug\net7.0\FirstNet.exe
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\bin\Debug\net7.0\FirstNet.deps.json
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\bin\Debug\net7.0\FirstNet.runtimeconfig.json
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\bin\Debug\net7.0\FirstNet.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\bin\Debug\net7.0\FirstNet.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.AssemblyInfoInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.AssemblyInfo.cs
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.csproj.CoreCompileInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\refint\FirstNet.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\FirstNet.genruntimeconfig.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\obj\Debug\net7.0\ref\FirstNet.dll

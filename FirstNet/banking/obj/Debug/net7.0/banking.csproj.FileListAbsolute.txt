@@ -1,0 +1,14 @@
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\bin\Debug\net7.0\banking.exe
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\bin\Debug\net7.0\banking.deps.json
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\bin\Debug\net7.0\banking.runtimeconfig.json
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\bin\Debug\net7.0\banking.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\bin\Debug\net7.0\banking.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.AssemblyInfoInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.AssemblyInfo.cs
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.csproj.CoreCompileInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\refint\banking.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\banking.genruntimeconfig.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\banking\obj\Debug\net7.0\ref\banking.dll
