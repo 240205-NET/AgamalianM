@@ -1,0 +1,14 @@
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.AssemblyInfoInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.AssemblyInfo.cs
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.csproj.CoreCompileInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\bin\Debug\net7.0\Serializer.exe
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\bin\Debug\net7.0\Serializer.deps.json
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\bin\Debug\net7.0\Serializer.runtimeconfig.json
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\bin\Debug\net7.0\Serializer.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\bin\Debug\net7.0\Serializer.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\refint\Serializer.dll
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\Serializer.genruntimeconfig.cache
+C:\Program Files\Scripts\Revature\AgamalianM\FirstNet\Serializer\obj\Debug\net7.0\ref\Serializer.dll
