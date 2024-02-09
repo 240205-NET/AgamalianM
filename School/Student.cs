@@ -1,12 +1,12 @@
 namespace School{
         class Student : Person{
             // Fields
-            public double GPA = 0.0;
+            public double GPA {get; set;} = 0.0;
 
             // Constructors
-            public Student(string name, string Email, string address1, string address2, string city, string state, string zip){
+            public Student(string name, string email, string address1, string address2, string city, string state, string zip){
                 this.name = name;
-                this.Email = Email;
+                this.email = email;
                 this.address1 = address1;
                 this.address2 = address2;
                 this.city = city;

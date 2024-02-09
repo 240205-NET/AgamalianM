@@ -1,13 +1,13 @@
 namespace School{
     abstract class Person{
         // Fields
-        public string name {get;set;}
-        public string Email {get;set;}
-        public string address1 {get;set;}
-        public string address2 {get;set;}
-        public string city {get;set;}
-        public string state {get;set;}
-        public string zip {get;set;}
+        public string name;
+        public string email;
+        public string address1;
+        public string address2;
+        public string city;
+        public string state;
+        public string zip;
 
         // No Constructor Needed since class is abstract
 
