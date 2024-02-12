@@ -18,7 +18,7 @@ namespace School.App
             this._teachers = new List<Teacher>();
             this._courses = new List<Course>();
             this._classes = new List<Class>();
-        
+
             _students.Add(new Student( "New Guy", "guy@no.com", "1500 Pen. Ave", "", "Washington", "DC", "12345"));
             _teachers.Add(new Teacher(14, 75000, "Science", "Someone New", "new.teach@no.com", "Somewhere", "", "NYC", "NY", "12345"));
         }
