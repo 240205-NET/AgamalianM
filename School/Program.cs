@@ -1,32 +1,31 @@
-﻿namespace School{
-    class Program{
-        static void Main(){
-            
+﻿using System;
+
+namespace School.App
+{
+    class Program
+    {
+        static void Main()
+        // To Do Monday:
+        // - review the changes (person, student, teacher, course, class, program)
+        // - separate concerns (.App/.Logic)
+        // - XML commenting
+        // - retrieve specific person
+        {
             Console.WriteLine("School Starting...");
-            try{
+            try
+            {
                 School MySchool = new School();
+                // Student tmp = MySchool.GetStudent();
+                // Console.WriteLine(tmp.name);
+                Console.WriteLine(MySchool.GetStudentsInfo());
+                Console.WriteLine(MySchool.GetTeachersInfo());
             }
-            catch(Exception e){
+            catch (Exception e)
+            {
                 Console.WriteLine(e.Message);
             }
-            
-            Console.WriteLine("School Ending...");
 
-            // Courses : Parent Class
-                // ID
-                // Name
-                // Department
-                // Requirements
-                // Credit Hours
-
-            // Classes : Child of Course
-                // Location
-                // Schedule
-                // Instructor
-                // Roster
-                // Capacity
-                // Section
-
+            Console.WriteLine("Schoold Ending...");
         }
     }
 }

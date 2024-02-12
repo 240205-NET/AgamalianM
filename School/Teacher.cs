@@ -1,12 +1,17 @@
-namespace School{
-    class Teacher : Person{
+using System;
+
+namespace School.App
+{
+    class Teacher : Person
+    {          
         // Fields
-        public int office {get; set;}
-        public double salary {get; set;}
-        public string subject {get; set;}
+        public int office { get; set; }
+        public double salary { get; set; }
+        public string subject { get; set; }
 
         // Constructors
-        public Teacher(int office, double salary, string subject, string name, string email, string address1, string address2, string city, string state, string zip){
+        public Teacher (int office, double salary, string subject, string name, string email, string address1, string address2, string city, string state, string zip)
+        {
             this.office = office;
             this.salary = salary;
             this.subject = subject;
@@ -19,9 +24,9 @@ namespace School{
             this.zip = zip;
         }
         // Methods
+        public override string ToString()
+        {
+            return $"Teacher\nName: {this.name}\nSubject: {this.subject}\nOffice: {this.office}\nEmail: {this.email}\nAddress:\n{this.address1}\n{this.address2}\n{this.city} {this.state}, {this.zip}\n";
+        }
     }
 }
-// Teachers : child of Person
-    // Office
-    // Salary
-    // Subject
