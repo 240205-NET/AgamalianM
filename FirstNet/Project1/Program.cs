@@ -1,10 +1,8 @@
 ﻿namespace Project1{
     class Program{
-        static void Main(){
-            Data data = new Data();
-            data.GenerateData(100,10);
-            data.ToString();
-            
+        static void Main(){ 
+            Stock Amazon = new Stock("Amazon", 1000, 500, 10);
+            Console.WriteLine(Amazon.ToString());
             // Accounts
                 // Owner
                     // Name

@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Project1{
     class Data{
         // Fields
@@ -51,12 +53,14 @@ namespace Project1{
             }
         }
         
-        public void ToString(){
+        public string ToString(){
+            var sb = new StringBuilder();
             for(int i = 0; i < numberOfDays; i++){
-                Console.WriteLine("Day:\t" + this.Day[i]);
-                Console.WriteLine("Opening Price:\t" + this.OpenPrice[i]);
-                Console.WriteLine("Closing Price:\t" + this.ClosePrice[i]);
+                sb.AppendLine("Closing Price:\t" + this.ClosePrice[i]);
+                sb.AppendLine("Opening Price:\t" + this.OpenPrice[i]);
+                sb.AppendLine("Day:\t" + this.Day[i]);
             }
+            return sb.ToString();
         }
     }
 }
