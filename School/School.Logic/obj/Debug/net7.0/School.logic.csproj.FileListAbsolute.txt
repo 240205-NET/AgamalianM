@@ -1,0 +1,11 @@
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\bin\Debug\net7.0\School.logic.deps.json
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\bin\Debug\net7.0\School.logic.dll
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\bin\Debug\net7.0\School.logic.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\School.logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\School.logic.AssemblyInfoInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\School.logic.AssemblyInfo.cs
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\School.logic.csproj.CoreCompileInputs.cache
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\School.logic.dll
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\refint\School.logic.dll
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\School.logic.pdb
+C:\Program Files\Scripts\Revature\AgamalianM\School\School.Logic\obj\Debug\net7.0\ref\School.logic.dll
