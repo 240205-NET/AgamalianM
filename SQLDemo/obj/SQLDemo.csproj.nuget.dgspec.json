@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Banking\\banking.csproj": {}
+    "C:\\program files\\Scripts\\Revature\\AgamalianM\\SQLDemo\\SQLDemo.csproj": {}
   },
   "projects": {
-    "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Banking\\banking.csproj": {
+    "C:\\program files\\Scripts\\Revature\\AgamalianM\\SQLDemo\\SQLDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Banking\\banking.csproj",
-        "projectName": "banking",
-        "projectPath": "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Banking\\banking.csproj",
+        "projectUniqueName": "C:\\program files\\Scripts\\Revature\\AgamalianM\\SQLDemo\\SQLDemo.csproj",
+        "projectName": "SQLDemo",
+        "projectPath": "C:\\program files\\Scripts\\Revature\\AgamalianM\\SQLDemo\\SQLDemo.csproj",
         "packagesPath": "C:\\Users\\Agama\\.nuget\\packages\\",
-        "outputPath": "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Banking\\obj\\",
+        "outputPath": "C:\\program files\\Scripts\\Revature\\AgamalianM\\SQLDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Agama\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
