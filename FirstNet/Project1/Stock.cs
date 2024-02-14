@@ -7,11 +7,11 @@ namespace Project1{
         public int Quantity{get;set;}
         public Data data {get;}
         // Constructors
-        public Stock(string compayName, int quantity){
+        public Stock(string compayName, int quantity, int startPrice, int variation){
             this.CompanyName = compayName;
             this.Quantity = quantity;
             this.data = new Data();
-            this.data.GenerateData();
+            this.data.GenerateData(startPrice, variation);
         }
 
         // Methods

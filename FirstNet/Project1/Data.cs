@@ -16,7 +16,7 @@ namespace Project1{
         }
 
         // Methods
-        public void GenerateData(int startPrice = 1, int variation = 1){
+        public void GenerateData(int startPrice, int variation){
             // int[,]newData = new int[numberOfDays,3];
             int endPrice = 0;
             Random rnd = new Random();

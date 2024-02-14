@@ -27,7 +27,7 @@ namespace Project1{
             var sb = new StringBuilder();
             sb.Append("Name: " + name);
             sb.Append("\tBalance: $" + balance);
-            sb.Append("\tTier: " + tier);
+            sb.AppendLine("\tTier: " + tier);
                 foreach(Stock s in stocks)
                     sb.AppendLine(s.ToString());
                 

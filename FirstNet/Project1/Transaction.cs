@@ -8,7 +8,7 @@ namespace Project1{
         public int amount{get;set;}
 
         // Constructors
-        Transaction(int day, Account account, Stock stock){
+        public Transaction(int day, Account account, Stock stock){
             this.day = day;
             this.account = account;
             this.stock = stock;
@@ -17,6 +17,8 @@ namespace Project1{
         // Methods
         public void BuyStock(int amount, bool isStartOfDay){
             int cost = amount * this.stock.data.GetPrice(day, isStartOfDay);
+            Console.WriteLine("Cost: " + this.stock.data.GetPrice(day, isStartOfDay)
+                            + " x " + amount + " = " + cost);
             if(amount < 0){
                 Console.WriteLine("Must be a positive number");
             }else if(amount > stock.Quantity){
@@ -27,12 +29,12 @@ namespace Project1{
                 this.stock.Quantity -= amount;
                 if(this.account.stocks.Exists(s => s.CompanyName == this.stock.CompanyName)){
                     Console.WriteLine("adding on");
-                    this.account.
                 } else {
                     Console.WriteLine("nothing found");
                     Stock boughtStock = this.stock;
                     boughtStock.Quantity = amount; 
                     this.account.stocks.Add(boughtStock);
+                    this.account.balance -= cost;
                 }
             }
         }
