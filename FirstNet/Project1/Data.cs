@@ -3,10 +3,10 @@ using System.Text;
 namespace Project1{
     class Data{
         // Fields
-        private const int numberOfDays = 100;
+        private const int numberOfDays = 10;
         public int[] Day {get;}
-        public int[] OpenPrice {get;}
-        public int[] ClosePrice {get;}
+        public int[] OpenPrice {get;set;}
+        public int[] ClosePrice {get;set;}
 
         // Constructors
         public Data(){
@@ -16,17 +16,6 @@ namespace Project1{
         }
 
         // Methods
-        public int[] GetData(int day){
-            int[] stockPrice = new int[2];
-            if(day < 0){
-                Console.WriteLine("day must be in range 0 - " + numberOfDays);
-            }else{
-                stockPrice[0] = this.OpenPrice[day];
-                stockPrice[1] = this.ClosePrice[day];
-            }
-            return stockPrice;
-        }
-        
         public void GenerateData(int startPrice = 1, int variation = 1){
             // int[,]newData = new int[numberOfDays,3];
             int endPrice = 0;
@@ -42,6 +31,9 @@ namespace Project1{
                     }
                     endPrice = rnd.Next(startPrice - variation,
                                     (startPrice + variation) + 1);
+                    if(endPrice < 0)
+                        endPrice = 0; // prevent negative stock value
+                        
                     this.Day[i] = i + 1;
                     this.OpenPrice[i] = startPrice;
                     this.ClosePrice[i] = endPrice;
@@ -52,13 +44,21 @@ namespace Project1{
                 }
             }
         }
-        
+        public int GetPrice(int day, bool isStartOfDay){
+            if(day <= 0){
+                Console.WriteLine("Must be a positive number" + numberOfDays);
+                return 0;
+            }
+
+            return isStartOfDay ? (this.OpenPrice[day - 1]) : (this.ClosePrice[day - 1]);
+        }
+
         public string ToString(){
             var sb = new StringBuilder();
             for(int i = 0; i < numberOfDays; i++){
-                sb.AppendLine("Closing Price:\t" + this.ClosePrice[i]);
-                sb.AppendLine("Opening Price:\t" + this.OpenPrice[i]);
-                sb.AppendLine("Day:\t" + this.Day[i]);
+                sb.Append("Day: " + this.Day[i]);
+                sb.Append("\tOpening Price: $" + this.OpenPrice[i]);
+                sb.AppendLine("\tClosing Price: $" + this.ClosePrice[i]);
             }
             return sb.ToString();
         }
