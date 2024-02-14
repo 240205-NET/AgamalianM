@@ -1,5 +1,5 @@
 ﻿using System;
-
+using School.Logic;
 namespace School.App
 {
     class Program
@@ -16,14 +16,14 @@ namespace School.App
                 Console.WriteLine("School Starting...");
 
                 School MySchool = new School();
-                Student tmp = MySchool.GetStudent();
+                Student tmp = MySchool.GetStudent(10);
                 Console.WriteLine(tmp.name);
                 Console.WriteLine(MySchool.GetStudentsInfo());
 
                 Console.WriteLine("Establishing Connection...");
-                string path = "./../.ConnectionString.txt";
+                string path = "./../../.ConnectionString.txt";
                 string connectionString = File.ReadAllText(path);
-                
+
                 Console.WriteLine(MySchool.GetTeachersInfo(connectionString));
                 Console.WriteLine("School Ending...");
             }
