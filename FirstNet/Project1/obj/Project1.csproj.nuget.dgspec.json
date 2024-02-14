@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\program files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj": {}
+    "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj": {}
   },
   "projects": {
-    "C:\\program files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj": {
+    "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\program files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj",
+        "projectUniqueName": "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj",
         "projectName": "Project1",
-        "projectPath": "C:\\program files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj",
+        "projectPath": "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\Project1.csproj",
         "packagesPath": "C:\\Users\\Agama\\.nuget\\packages\\",
-        "outputPath": "C:\\program files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\obj\\",
+        "outputPath": "C:\\Program Files\\Scripts\\Revature\\AgamalianM\\FirstNet\\Project1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Agama\\AppData\\Roaming\\NuGet\\NuGet.Config"

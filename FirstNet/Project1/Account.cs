@@ -3,7 +3,6 @@ using System.Text;
 namespace Project1{
     class Account{
         // Fields
-
         public string name{get;set;}
         public int age {get;set;}
         public string address{get;set;}
@@ -23,7 +22,7 @@ namespace Project1{
         }
 
         // Methods
-        public string ToString(){
+        public override string ToString(){
             var sb = new StringBuilder();
             sb.Append("Name: " + name);
             sb.Append("\tBalance: $" + balance);
@@ -36,10 +35,8 @@ namespace Project1{
             return sb.ToString();
         }
 
-        public void BuyStock(int day, bool isStartOfDay, Stock stock, int amount){
-            int cost = amount * stock.data.GetPrice(day, isStartOfDay);
-            // Console.WriteLine("Cost: " + stock.data.GetPrice(day, isStartOfDay)
-            //                 + " x " + amount + " = " + cost);
+        public void BuyStock(Day day, Stock stock, int amount){
+            int cost = amount * stock.data.GetPrice(day.day, day.isStartOfDay);
             if(amount < 0){
                 Console.WriteLine("Must be a positive number");
             }else if(amount > stock.Quantity){
@@ -47,23 +44,47 @@ namespace Project1{
             }else if(cost > this.balance){
                 Console.WriteLine("Not enough funds");
             }else{
-                stock.Quantity -= amount; // FIX Global stock.quantity 
+                stock.Quantity -= amount;
                 var newStock = (from s in this.stocks
                                 where s.CompanyName == stock.CompanyName
                                 select s).FirstOrDefault();
                 
                 if(newStock == null){
-                    Console.WriteLine("nothing found");
-                    newStock = stock;
+                    newStock = new Stock(stock);
                     newStock.Quantity = amount;
                 } else{
-                    Console.WriteLine("found something: " + newStock.ToString());
                     this.stocks.Remove(newStock);
                     newStock.Quantity += amount;
                 }
                  
                 this.stocks.Add(newStock);
                 this.balance -= cost;
+                Console.WriteLine("Transaction Complete");
+            }
+            
+        }
+
+        public void SellStock(Day day, Stock stock , int amount){
+            int cost = amount * stock.data.GetPrice(day.day, day.isStartOfDay);
+            var accountStock = (from s in this.stocks
+                                where s.CompanyName == stock.CompanyName
+                                select s).FirstOrDefault();
+            if(amount < 0){
+                Console.WriteLine("Must be a positive number");
+            }else if(accountStock == null){
+                Console.WriteLine("You do not own any of this stock");
+            }else if(amount > accountStock.Quantity){
+                Console.WriteLine("Amount not available");
+            }else{
+                stocks.Remove(accountStock);
+                if(accountStock.Quantity != amount){
+                    accountStock.Quantity -= amount;
+                    stocks.Add(accountStock);
+                }
+
+                stock.Quantity += amount;
+                this.balance += cost;
+                Console.WriteLine("Transaction Complete");
             }
         }
     }

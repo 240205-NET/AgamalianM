@@ -3,22 +3,34 @@ using System.Text;
 namespace Project1{
     class Stock{
         // Fields
+        static private int stockID = 0;
+        public int ID {get;}
         public string CompanyName{get;}
         public int Quantity{get;set;}
         public Data data {get;}
+        
         // Constructors
-        public Stock(string compayName, int quantity, int startPrice, int variation){
+        public Stock(int numberOfDays, string compayName, int quantity, int startPrice, int variation){
             this.CompanyName = compayName;
             this.Quantity = quantity;
-            this.data = new Data();
+            this.data = new Data(numberOfDays);
             this.data.GenerateData(startPrice, variation);
+            this.ID = stockID++;
+        }
+
+        public Stock(Stock stock){
+            this.CompanyName = stock.CompanyName;
+            this.Quantity = stock.Quantity;
+            this.data = stock.data;
+            this.ID = stockID++;
         }
 
         // Methods
-        public string ToString(){
+        public override string ToString(){
             var sb = new StringBuilder();
-            sb.Append("Company: " + CompanyName);
-            sb.Append("\t\tQuantity: " + Quantity);
+            sb.Append("ID: " + ID);
+            sb.Append("\tCompany: " + this.CompanyName);
+            sb.Append("\tQuantity: " + this.Quantity);
             return sb.ToString();
         }
     }

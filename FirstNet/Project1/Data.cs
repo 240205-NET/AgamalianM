@@ -3,14 +3,15 @@ using System.Text;
 namespace Project1{
     class Data{
         // Fields
-        private const int numberOfDays = 10;
+        private int numberOfDays;
         public int[] OpenPrice {get;set;}
         public int[] ClosePrice {get;set;}
 
         // Constructors
-        public Data(){
+        public Data(int numberOfDays){
             this.OpenPrice = new int[numberOfDays];
             this.ClosePrice = new int[numberOfDays];
+            this.numberOfDays = numberOfDays;
         }
 
         // Methods
@@ -42,7 +43,7 @@ namespace Project1{
             }
             return isStartOfDay ? (this.OpenPrice[day - 1]) : (this.ClosePrice[day - 1]);
         }
-        public string ToString(){
+        public override string ToString(){
             var sb = new StringBuilder();
             for(int i = 0; i < numberOfDays; i++){
                 sb.Append("Day: " + (i + 1));

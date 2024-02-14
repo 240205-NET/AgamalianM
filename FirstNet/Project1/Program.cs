@@ -1,23 +1,25 @@
 ﻿namespace Project1{
     class Program{
         static void Main(){
-            int day = 3;
-            bool isStartOfDay = true;
-            Stock Amazon = new Stock("Amazon", 1000, 500, 10);
-
-            Console.WriteLine(Amazon.ToString());
+            Day day = new Day(10);
+            Stock Amazon = new Stock(day.numberOfDays, "Amazon", 10, 500, 10);
+            Stock Target = new Stock(day.numberOfDays, "Target", 5, 200, 20);
+            Console.WriteLine("NEW STOCK: " +"\n"+ Amazon +"\n"+ Target);
 
             Account account1 = new Account("Michael", 18, "128 pe node", 999999, 2);
-            Console.WriteLine(account1.ToString());
+            Console.WriteLine("NEW ACCOUNT: " + account1);
 
-            account1.BuyStock(day, isStartOfDay, Amazon, 499);
-            Console.WriteLine(account1.ToString());
-
-            account1.BuyStock(day, isStartOfDay, Amazon, 505);
-            Console.WriteLine(account1.ToString());
+            Console.WriteLine("BUY");
+            account1.BuyStock(day,Amazon,3);
+            Console.WriteLine(account1);
+            account1.BuyStock(day,Target,4);
+            Console.WriteLine(account1);
+            day.Next();
             
-            account1.BuyStock(day, isStartOfDay, Amazon, 2);
-            Console.WriteLine(account1.ToString());
+            Console.WriteLine("SELL");
+            account1.SellStock(day,Amazon,2);
+            account1.SellStock(day,Target,4);
+            Console.WriteLine(account1);
 
         }
     }
