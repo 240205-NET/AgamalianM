@@ -16,11 +16,15 @@ namespace School.App
                 Console.WriteLine("School Starting...");
 
                 School MySchool = new School();
-                // Student tmp = MySchool.GetStudent();
-                // Console.WriteLine(tmp.name);
+                Student tmp = MySchool.GetStudent();
+                Console.WriteLine(tmp.name);
                 Console.WriteLine(MySchool.GetStudentsInfo());
-                Console.WriteLine(MySchool.GetTeachersInfo());
 
+                Console.WriteLine("Establishing Connection...");
+                string path = "./../.ConnectionString.txt";
+                string connectionString = File.ReadAllText(path);
+                
+                Console.WriteLine(MySchool.GetTeachersInfo(connectionString));
                 Console.WriteLine("School Ending...");
             }
             catch (Exception e)
@@ -28,5 +32,5 @@ namespace School.App
                 Console.WriteLine(e.Message);
             }
         }
-    }
+    }   
 }
