@@ -19,7 +19,7 @@ namespace Project1{
             this.address = address;
             this.balance = balance;
             this.tier = tier;
-             this.stocks = new List<Stock>();
+            this.stocks = new List<Stock>();
         }
 
         // Methods
@@ -28,13 +28,45 @@ namespace Project1{
             sb.Append("Name: " + name);
             sb.Append("\tBalance: $" + balance);
             sb.AppendLine("\tTier: " + tier);
+            if(stocks.Count() != 0){
+                sb.AppendLine("---Portfolio---");
                 foreach(Stock s in stocks)
                     sb.AppendLine(s.ToString());
-                
+            }
             return sb.ToString();
         }
-    }
 
+        public void BuyStock(int day, bool isStartOfDay, Stock stock, int amount){
+            int cost = amount * stock.data.GetPrice(day, isStartOfDay);
+            // Console.WriteLine("Cost: " + stock.data.GetPrice(day, isStartOfDay)
+            //                 + " x " + amount + " = " + cost);
+            if(amount < 0){
+                Console.WriteLine("Must be a positive number");
+            }else if(amount > stock.Quantity){
+                Console.WriteLine("Amount not available");
+            }else if(cost > this.balance){
+                Console.WriteLine("Not enough funds");
+            }else{
+                stock.Quantity -= amount; // FIX Global stock.quantity 
+                var newStock = (from s in this.stocks
+                                where s.CompanyName == stock.CompanyName
+                                select s).FirstOrDefault();
+                
+                if(newStock == null){
+                    Console.WriteLine("nothing found");
+                    newStock = stock;
+                    newStock.Quantity = amount;
+                } else{
+                    Console.WriteLine("found something: " + newStock.ToString());
+                    this.stocks.Remove(newStock);
+                    newStock.Quantity += amount;
+                }
+                 
+                this.stocks.Add(newStock);
+                this.balance -= cost;
+            }
+        }
+    }
 }
 
 

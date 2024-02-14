@@ -18,7 +18,7 @@ namespace Project1{
         public string ToString(){
             var sb = new StringBuilder();
             sb.Append("Company: " + CompanyName);
-            sb.Append("\tQuantity: " + Quantity);
+            sb.Append("\t\tQuantity: " + Quantity);
             return sb.ToString();
         }
     }
