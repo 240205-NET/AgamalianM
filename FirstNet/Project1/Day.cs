@@ -22,6 +22,8 @@ namespace Project1{
             }
             this.isStartOfDay = (isStartOfDay) ? false : true; //toggle
             Console.WriteLine("\n\n" + (isStartOfDay ? "Start of " : "End of " ) + "Day " + this.day);
+            if(day == numberOfDays && !isStartOfDay)
+                Console.WriteLine("FINAL TRANSACTIONS");
             return true;
         }
         
@@ -31,8 +33,8 @@ namespace Project1{
             }else{
                 this.day = day;
                 this.isStartOfDay = isStartOfDay;
+                Console.WriteLine("\n\n" + (isStartOfDay ? "Start of " : "End of " ) + "Day " + this.day);
             }
-            Console.WriteLine("\n\n" + (isStartOfDay ? "Start of " : "End of " ) + "Day " + this.day);
         }
     }
 }

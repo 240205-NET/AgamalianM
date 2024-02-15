@@ -10,7 +10,6 @@ namespace Project1{
         public int tier{get;set;} = 1;
         public List<Stock> stocks{get;set;}
         
-
         // Constructors
         public Account(string name, int age, string address, int balance, int tier){
             this.name = name;
@@ -30,7 +29,7 @@ namespace Project1{
             if(stocks.Count() != 0){
                 sb.AppendLine("---Portfolio---");
                 foreach(Stock s in stocks)
-                    sb.Append(s.ToString(today));
+                    sb.AppendLine(s.ToString(today));
             }
             return sb.ToString();
         }
@@ -75,7 +74,7 @@ namespace Project1{
                                 select s).FirstOrDefault();
             if(amount < 0){
                 Console.WriteLine("Must be a positive number");
-            }else if(accountStock == null){
+            }else if(accountStock == null || stocks.Count == 0){
                 Console.WriteLine("You do not own any of this stock");
             }else if(amount > accountStock.Quantity){
                 Console.WriteLine("Amount not available");
