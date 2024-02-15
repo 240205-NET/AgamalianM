@@ -22,7 +22,7 @@ namespace Project1{
         }
 
         // Methods
-        public override string ToString(){
+        public string ToString(Day today){
             var sb = new StringBuilder();
             sb.Append("Name: " + name);
             sb.Append("\tBalance: $" + balance);
@@ -30,7 +30,7 @@ namespace Project1{
             if(stocks.Count() != 0){
                 sb.AppendLine("---Portfolio---");
                 foreach(Stock s in stocks)
-                    sb.AppendLine(s.ToString());
+                    sb.Append(s.ToString(today));
             }
             return sb.ToString();
         }
