@@ -24,13 +24,17 @@ namespace Project1{
             }else{
                 
                 for(int i = 0; i < numberOfDays; i++){
-                    if(i > 0){
-                        startPrice = endPrice;
-                    }
-                    endPrice = rnd.Next(startPrice - variation,
-                                    (startPrice + variation) + 1);
+                    if(i != 0)
+                        startPrice = rnd.Next(startPrice - variation, (startPrice + variation) + 1);
+                    
+                    endPrice = rnd.Next(startPrice - variation, (startPrice + variation) + 1);
+                    
+                    // prevent negative stock value
                     if(endPrice < 0)
-                        endPrice = 0; // prevent negative stock value
+                        endPrice = 0;
+                    if(startPrice < 0)
+                        startPrice = 0;
+                    
                     this.OpenPrice[i] = startPrice;
                     this.ClosePrice[i] = endPrice;
                 }

@@ -5,7 +5,6 @@
             Day day = new Day(ReadInt());
             
             List<Stock> stocks = GenerateStocks(day);
-            
             Account account1 = CreateAccount();
             int startBalance = account1.balance;
             Console.WriteLine("Welcome");
@@ -36,17 +35,17 @@
                         case 4: // HOLD STOCK
                             Console.WriteLine("And so, time continues on...");
                             break;
-                        case 5: // SKIP TO DAY
-                            Console.WriteLine("Which day would you like to skip too?");
-                            Console.WriteLine("Last day: " + day.numberOfDays);
-                            int userDay = ReadInt();
-                            day.Set(userDay, true);
-                            break;
+                        // case 5: // SKIP TO DAY ##DEBUG OPTION##
+                        //     Console.WriteLine("Which day would you like to skip too?");
+                        //     Console.WriteLine("Last day: " + day.numberOfDays);
+                        //     int userDay = ReadInt();
+                        //     day.Set(userDay, true);
+                        //     break;
                         default:
-                            Console.WriteLine("Unknown option");
+                            Console.WriteLine("Invalid option");
                             break;
                     }
-                }while(menu < 4); //continue to next day if user is done buying/selling
+                }while(menu != 4); //continue to next day if user is done buying/selling
             }while(day.Next());
             
             Console.WriteLine("Thanks for playing!");
@@ -54,9 +53,9 @@
             Console.WriteLine(account1.ToString(day));
             int performance = account1.balance - startBalance;
             if(performance > 0){
-                Console.WriteLine("You made: $" + performance + "!");
+                Console.WriteLine("You made: $" + performance + " dollars!");
             }else{
-                Console.WriteLine("You lost: $" + -performance + "!");
+                Console.WriteLine("You lost: $" + -performance + " dollars...");
             }
         }
 
@@ -104,17 +103,48 @@
         }
     
         static Account CreateAccount(){
+            bool canPlay = true;
             Console.WriteLine("Please Create an account");
+            
             Console.Write("name: ");
             string name = Console.ReadLine();
-            Console.Write("age: ");
-            int age = ReadInt();
+            
+            int age;
+            do{
+                Console.Write("age: ");
+                age = ReadInt();
+                if(age < 18){
+                    Console.WriteLine("This is a Big Boi Game.");
+                    Console.WriteLine("You must be 18yrs or older to trade.");
+                    canPlay = false;
+                }else{
+                    canPlay = true;
+                }
+            }while(!canPlay);
+            
             Console.Write("address: ");
             string address = Console.ReadLine();
-            Console.Write("balance: ");
-            int balance = ReadInt();
-            Console.Write("tier: ");
-            int tier = ReadInt();
+            
+            int balance;
+            do{
+                Console.Write("balance: ");
+                balance = ReadInt();
+                if(balance < 100){
+                    Console.WriteLine("Must have at least $100 to purchase a trade.");
+                    canPlay = false;
+                }else{
+                    canPlay = true;
+                }
+            }while(!canPlay);
+            
+            int tier;
+            if(balance < 500){
+                tier = 1;
+            }else if(balance > 500 && balance < 1000){
+                tier = 2;
+            }else{
+                tier = 3;
+            }
             Account account = new Account(name, age, address, balance, tier);
 
             return account;
@@ -126,7 +156,6 @@
             Console.WriteLine("2 -- BUY STOCK");
             Console.WriteLine("3 -- SELL STOCK");
             Console.WriteLine("4 -- HOLD STOCK");
-            Console.WriteLine("5 -- SKIP TO DAY");
             return ReadInt();
         }
 
@@ -161,7 +190,7 @@
                 }
                 choice[0] = ReadInt() - 1;
                 if(choice[0] > options - 1){
-                    Console.WriteLine("Invalid Selection " + (choice[0] + 1));
+                    Console.WriteLine("Invalid Selection");
                     continue;
                 }
                 valid = true;
