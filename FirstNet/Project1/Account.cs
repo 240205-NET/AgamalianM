@@ -36,13 +36,16 @@ namespace Project1{
         }
 
         public void BuyStock(Day day, Stock stock, int amount){
-            int cost = amount * stock.data.GetPrice(day.day, day.isStartOfDay);
+            int stockPrice = stock.data.GetPrice(day.day, day.isStartOfDay);
+            int cost = amount * stockPrice;
             if(amount < 0){
                 Console.WriteLine("Must be a positive number");
             }else if(amount > stock.Quantity){
                 Console.WriteLine("Amount not available");
             }else if(cost > this.balance){
                 Console.WriteLine("Not enough funds");
+            }else if(stockPrice < 0){
+                Console.WriteLine("Error with day data");
             }else{
                 stock.Quantity -= amount;
                 var newStock = (from s in this.stocks
@@ -65,7 +68,8 @@ namespace Project1{
         }
 
         public void SellStock(Day day, Stock stock , int amount){
-            int cost = amount * stock.data.GetPrice(day.day, day.isStartOfDay);
+            int stockPrice = stock.data.GetPrice(day.day, day.isStartOfDay);
+            int cost = amount * stockPrice;
             var accountStock = (from s in this.stocks
                                 where s.CompanyName == stock.CompanyName
                                 select s).FirstOrDefault();
@@ -75,6 +79,8 @@ namespace Project1{
                 Console.WriteLine("You do not own any of this stock");
             }else if(amount > accountStock.Quantity){
                 Console.WriteLine("Amount not available");
+            }else if(stockPrice < 0){
+                Console.WriteLine("Error with day data");
             }else{
                 stocks.Remove(accountStock);
                 if(accountStock.Quantity != amount){
