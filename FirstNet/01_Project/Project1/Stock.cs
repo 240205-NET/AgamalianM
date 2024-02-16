@@ -28,7 +28,7 @@ namespace Project1{
         // Methods
         public string ToString(Day today){
             var sb = new StringBuilder();
-            sb.Append(this.ID + " "); //DEBUG
+            // sb.Append(this.ID + " "); //DEBUG
             sb.Append(this.CompanyName + "\tShares: " + this.Quantity);
             sb.Append("\tPrice: $" + this.data.GetPrice(today.day, today.isStartOfDay));
             return sb.ToString();
