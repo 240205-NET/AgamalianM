@@ -1,5 +1,5 @@
 ﻿using System;
-using School.Logic;
+
 namespace School.App
 {
     class Program
@@ -10,27 +10,31 @@ namespace School.App
         // - separate concerns (.App/.Logic)
         // - XML commenting
         // - retrieve specific person
+
+        // SQL - Database
+        // SQL - Structured Query Language
+        // It's a whole new language! It has it's own syntax, and there's many "flavors" of SQL
+        // PostgreSQL, SQLite, MS-SQL/T-SQL/Transactional-SQL
+
         {
             try
             {
                 Console.WriteLine("School Starting...");
 
                 School MySchool = new School();
-                Student tmp = MySchool.GetStudent(10);
-                Console.WriteLine(tmp.name);
+                // Student tmp = MySchool.GetStudent();
+                // Console.WriteLine(tmp.name);
                 Console.WriteLine(MySchool.GetStudentsInfo());
+                Console.WriteLine(MySchool.GetTeachersInfo());
 
-                Console.WriteLine("Establishing Connection...");
-                string path = "./../../.ConnectionString.txt";
-                string connectionString = File.ReadAllText(path);
-
-                Console.WriteLine(MySchool.GetTeachersInfo(connectionString));
-                Console.WriteLine("School Ending...");
+                Console.WriteLine("Schoold Ending...");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-    }   
+
+        
+    }
 }

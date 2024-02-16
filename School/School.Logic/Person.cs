@@ -52,7 +52,7 @@ namespace School.Logic
         public string? address2;
         public string? city;
         public string? state;
-        public int? zip;
+        public string? zip;
 
         // No need for a constructor! 
         // It's abstract you can't build one, so we don't need to define how to build one!

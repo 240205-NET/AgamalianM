@@ -27,11 +27,17 @@
                             case 2: // BUY STOCK
                                 Console.WriteLine("Choose stock to buy");
                                 choice = GetStockChoice(stocks, day);
+                                if(choice[0] == -1){
+                                    break;
+                                }
                                 account1.BuyStock(day, stocks[choice[0]], choice[1]);
                                 break;
                             case 3: // SELL STOCK
                                 Console.WriteLine("Choose stock to sell");
                                 choice = GetStockChoice(account1.stocks, day);
+                                if(choice[0] == -1){
+                                    break;
+                                }
                                 account1.SellStock(day, account1.stocks[choice[0]], choice[1]);
                                 break;
                             case 4: // HOLD STOCK
@@ -199,16 +205,26 @@
             int[] choice = new int[2];
             int options = stocks.Count;
             bool valid = false;
+            
+            if(options == 0){
+                Console.WriteLine("No options available");
+                return new int[] {-1,0};
+            }
 
             do{
                 for(int i = 0; i < options; i++){
                     Console.WriteLine((i + 1) + " - " + stocks[i].ToString(today));
                 }
-                choice[0] = ReadInt() - 1;
-                if(choice[0] > options - 1){
+                Console.WriteLine((options + 1) + " - " + "Cancel");
+                choice[0] = ReadInt();
+                if(choice[0] > options + 1){
                     Console.WriteLine("Invalid Selection");
                     continue;
                 }
+                if(choice[0] == options + 1){ 
+                    return new int[] {-1,0};
+                }
+                choice[0] -= 1;
                 valid = true;
             }while(!valid);
             

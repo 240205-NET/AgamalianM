@@ -6,11 +6,11 @@ namespace School.Logic
     {          
         // Fields
         public int office { get; set; }
-        public decimal salary { get; set; }
+        public double salary { get; set; }
         public string subject { get; set; }
 
         // Constructors
-        public Teacher (int office, decimal salary, string subject, string name, string email, string address1, string address2, string city, string state, int zip)
+        public Teacher (int office, double salary, string subject, string name, string email, string address1, string address2, string city, string state, string zip)
         {
             this.office = office;
             this.salary = salary;

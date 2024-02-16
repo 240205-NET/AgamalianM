@@ -13,7 +13,7 @@ namespace School.Logic
         public Student()
         {}
         
-        public Student( string name, string email, string address1, string address2, string city, string state, int zip)
+        public Student( string name, string email, string address1, string address2, string city, string state, string zip)
         {
             this.studentId = idSeed;
             this.name = name;
