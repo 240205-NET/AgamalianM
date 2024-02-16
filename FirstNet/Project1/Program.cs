@@ -3,7 +3,8 @@
         static void Main(){
             bool playAgain = true;
             do{
-                Console.WriteLine("How Many Days?");
+                Console.WriteLine("Welcome!");
+                Console.WriteLine("How many days would you like to simulate?");
                 Day day = new Day(ReadInt());
                 
                 List<Stock> stocks = GenerateStocks(day);
@@ -128,12 +129,12 @@
             bool canPlay = true;
             Console.WriteLine("Please Create an account");
             
-            Console.Write("name: ");
+            Console.Write("Name: ");
             string name = Console.ReadLine();
             
             int age;
             do{
-                Console.Write("age: ");
+                Console.Write("Age: ");
                 age = ReadInt();
                 if(age < 18){
                     Console.WriteLine("This is a Big Boi Game.");
@@ -144,12 +145,12 @@
                 }
             }while(!canPlay);
             
-            Console.Write("address: ");
+            Console.Write("Address: ");
             string address = Console.ReadLine();
             
             int balance;
             do{
-                Console.Write("balance: ");
+                Console.Write("Bank balance: ");
                 balance = ReadInt();
                 if(balance < 100){
                     Console.WriteLine("Must have at least $100 to purchase a trade.");
