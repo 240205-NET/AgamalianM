@@ -3,6 +3,7 @@
         static void Main(){
             bool playAgain = true;
             do{
+                Console.Clear();
                 Console.WriteLine("Welcome!");
                 Console.WriteLine("How many days would you like to simulate?");
                 Day day = new Day(ReadInt());
@@ -26,7 +27,7 @@
                                 Console.WriteLine(account1.ToString(day));
                                 break;
                             case 2: // BUY STOCK
-                                Console.WriteLine("Choose stock to buy");
+                                Console.WriteLine("\nChoose stock to buy");
                                 choice = GetStockChoice(stocks, day);
                                 if(choice[0] == -1){
                                     break;
@@ -34,7 +35,7 @@
                                 account1.BuyStock(day, stocks[choice[0]], choice[1]);
                                 break;
                             case 3: // SELL STOCK
-                                Console.WriteLine("Choose stock to sell");
+                                Console.WriteLine("\nChoose stock to sell");
                                 choice = GetStockChoice(account1.stocks, day);
                                 if(choice[0] == -1){
                                     break;
@@ -42,7 +43,7 @@
                                 account1.SellStock(day, stocks, account1.stocks[choice[0]], choice[1]);
                                 break;
                             case 4: // HOLD STOCK
-                                Console.WriteLine("And so, time continues on...");
+                                Console.WriteLine("\nAnd so, time continues on...");
                                 break;
                             // case 5: // SKIP TO DAY ##DEBUG OPTION##
                             //     Console.WriteLine("Which day would you like to skip too?");
@@ -51,14 +52,15 @@
                             //     day.Set(userDay, true);
                             //     break;
                             default:
-                                Console.WriteLine("Invalid option");
+                                Console.WriteLine("\nInvalid option");
                                 break;
                         }
                     }while(menu != 4); //continue to next day if user is done buying/selling
+                    Console.Clear();
                 }while(day.Next());
                 
                 // Perfomance review
-                Console.WriteLine("STATS");
+                Console.WriteLine("\n\n-------STATS-------");
                 Console.WriteLine(account1.ToString(day));
                 int performance = account1.balance - startBalance;
                 if(performance > 0){
@@ -75,6 +77,7 @@
                     record.Save();
                 }
                 
+                Console.Clear();
                 option = YesNoChoice("Play again?");
                 if(option == 2){
                     playAgain = false;
@@ -140,6 +143,10 @@
                     Console.WriteLine("This is a Big Boi Game.");
                     Console.WriteLine("You must be 18yrs or older to trade.");
                     canPlay = false;
+                }else if (age > 100){{
+                    Console.WriteLine("You have to be ALIVE to trade...");
+                    canPlay = false;
+                }
                 }else{
                     canPlay = true;
                 }
@@ -153,8 +160,12 @@
                 Console.Write("Bank balance: ");
                 balance = ReadInt();
                 if(balance < 100){
+                    Console.Clear();
                     Console.WriteLine("Must have at least $100 to purchase a trade.");
-                    canPlay = false;
+                    balance = ConvertAssets();
+                }else if(balance > 10000){
+                    Console.WriteLine("Hi Bezos!!!");
+                    name = "Jeff Bezos";    
                 }else{
                     canPlay = true;
                 }
@@ -253,6 +264,54 @@
                     Console.WriteLine("Invalid option");
             }while(option > 2);
             return option;
+        }
+    
+        static int ConvertAssets(){
+            bool valid = false;
+            int choice = 0;
+            int balance = 103;
+            do{
+                Console.WriteLine("You must sell an asset to trade");
+                Console.WriteLine("\nHow big is this item?");
+                Console.WriteLine("1 - a about the size of an arm");
+                Console.WriteLine("2 - a about the size of a car");
+                Console.WriteLine("3 - a about the size of your house");
+                choice = ReadInt();
+                if(choice > 3){
+                    Console.WriteLine("You must make a valid selection");
+                }else{
+                    valid = true;
+                }
+            }while(!valid);
+            
+            switch(choice){
+                case 1:
+                    SmallAsset asset = new SmallAsset();
+                    asset.GetName();
+                    balance = asset.GetValue();
+                    asset.GetAgreement();
+                    Console.WriteLine("\n\nTERMS OF CONTRACT\n you agree to sell: "+ asset.name + "\n for the amoun: "+ balance + "\nDo you agree: "+ asset.agreeToSell);
+                    return balance;
+                case 2:
+                    MediumAsset asset1 = new MediumAsset();
+                    asset1.GetName();
+                    balance = asset1.GetValue();
+                    asset1.GetAgreement();
+                    Console.WriteLine("\n\nTERMS OF CONTRACT\n you agree to sell: "+ asset1.name + "\n for the amoun: "+ balance + "\nDo you agree: "+ asset1.agreeToSell);
+                    return balance;
+                case 3: 
+                    LargeAsset asset2 = new LargeAsset();
+                    asset2.GetName();
+                    balance = asset2.GetValue();
+                    asset2.GetAgreement();
+                    Console.WriteLine("\n\nTERMS OF CONTRACT\n you agree to sell: "+ asset2.name + "\n for the amoun: "+ balance + "\nDo you agree: "+ asset2.agreeToSell);
+                    return balance;
+                default:
+                    Console.WriteLine("\n\nI dont know why...or how, but I must give you $100,000.\nHere ya go.");
+                    balance = 100000;
+                    return balance;
+            }
+            return balance;
         }
     }
 }

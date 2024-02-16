@@ -23,7 +23,7 @@ namespace Project1{
         // Methods
         public string ToString(Day today){
             var sb = new StringBuilder();
-            sb.Append("Name: " + name);
+            sb.Append("\nName: " + name);
             sb.Append("\tBalance: $" + balance);
             sb.AppendLine("\tTier: " + tier);
             if(stocks.Count() != 0){

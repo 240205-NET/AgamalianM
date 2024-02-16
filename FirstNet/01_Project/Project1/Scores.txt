@@ -36,4 +36,16 @@
     <startingBalance>1000</startingBalance>
     <performance>960</performance>
   </Record>
+  <Record>
+    <name>michel</name>
+    <daysPlayed>1</daysPlayed>
+    <startingBalance>1000</startingBalance>
+    <performance>6</performance>
+  </Record>
+  <Record>
+    <name>Jeff Bezos</name>
+    <daysPlayed>1</daysPlayed>
+    <startingBalance>10000000</startingBalance>
+    <performance>-60</performance>
+  </Record>
 </ArrayOfRecord>
