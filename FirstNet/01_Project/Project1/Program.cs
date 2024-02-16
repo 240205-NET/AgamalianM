@@ -192,10 +192,10 @@
     
         static int GetMenuOption(){
             Console.WriteLine("\nChoose an option");
-            Console.WriteLine("1 -- VIEW ACCOUNT");
-            Console.WriteLine("2 -- BUY STOCK");
-            Console.WriteLine("3 -- SELL STOCK");
-            Console.WriteLine("4 -- HOLD STOCK");
+            Console.WriteLine("1 -- View account");
+            Console.WriteLine("2 -- BUY stock");
+            Console.WriteLine("3 -- SELL stock");
+            Console.WriteLine("4 -- Do nothing");
             return ReadInt();
         }
 
