@@ -24,4 +24,10 @@
     <startingBalance>100000</startingBalance>
     <performance>308</performance>
   </Record>
+  <Record>
+    <name>me</name>
+    <daysPlayed>4</daysPlayed>
+    <startingBalance>933</startingBalance>
+    <performance>4</performance>
+  </Record>
 </ArrayOfRecord>
