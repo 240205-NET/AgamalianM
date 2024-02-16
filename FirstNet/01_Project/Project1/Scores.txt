@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-16"?>
 <ArrayOfRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Record>
-    <name>2</name>
+    <name>a cool dude</name>
     <daysPlayed>1</daysPlayed>
     <startingBalance>5000</startingBalance>
     <performance>-1</performance>
   </Record>
   <Record>
-    <name>1</name>
+    <name>another awsome man</name>
     <daysPlayed>1</daysPlayed>
     <startingBalance>1000</startingBalance>
     <performance>4</performance>
   </Record>
   <Record>
-    <name>4</name>
+    <name>some rando</name>
     <daysPlayed>1</daysPlayed>
     <startingBalance>100</startingBalance>
     <performance>5</performance>
@@ -23,29 +23,5 @@
     <daysPlayed>5</daysPlayed>
     <startingBalance>100000</startingBalance>
     <performance>308</performance>
-  </Record>
-  <Record>
-    <name>e</name>
-    <daysPlayed>1</daysPlayed>
-    <startingBalance>5000</startingBalance>
-    <performance>40</performance>
-  </Record>
-  <Record>
-    <name />
-    <daysPlayed>1</daysPlayed>
-    <startingBalance>1000</startingBalance>
-    <performance>960</performance>
-  </Record>
-  <Record>
-    <name>michel</name>
-    <daysPlayed>1</daysPlayed>
-    <startingBalance>1000</startingBalance>
-    <performance>6</performance>
-  </Record>
-  <Record>
-    <name>Jeff Bezos</name>
-    <daysPlayed>1</daysPlayed>
-    <startingBalance>10000000</startingBalance>
-    <performance>-60</performance>
   </Record>
 </ArrayOfRecord>
