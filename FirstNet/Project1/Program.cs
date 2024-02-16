@@ -1,64 +1,80 @@
 ﻿namespace Project1{
     class Program{
-        static void Main(){       
-            Console.WriteLine("How Many Days?");
-            Day day = new Day(ReadInt());
-            
-            List<Stock> stocks = GenerateStocks(day);
-            Account account1 = CreateAccount();
-            int startBalance = account1.balance;
-            Console.WriteLine("Welcome");
-            Console.WriteLine(account1.ToString(day));
-
-            // play game
+        static void Main(){
+            bool playAgain = true;
             do{
-                AnnounceStockPrices(day, stocks);
-                int menu = 0;
-                do{
-                    menu = GetMenuOption();
-                    
-                    int[] choice = new int[2];
-                    switch(menu){
-                        case 1: // View account
-                            Console.WriteLine(account1.ToString(day));
-                            break;
-                        case 2: // BUY STOCK
-                            Console.WriteLine("Choose stock to buy");
-                            choice = GetStockChoice(stocks, day);
-                            account1.BuyStock(day, stocks[choice[0]], choice[1]);
-                            break;
-                        case 3: // SELL STOCK
-                            Console.WriteLine("Choose stock to sell");
-                            choice = GetStockChoice(account1.stocks, day);
-                            account1.SellStock(day, account1.stocks[choice[0]], choice[1]);
-                            break;
-                        case 4: // HOLD STOCK
-                            Console.WriteLine("And so, time continues on...");
-                            break;
-                        // case 5: // SKIP TO DAY ##DEBUG OPTION##
-                        //     Console.WriteLine("Which day would you like to skip too?");
-                        //     Console.WriteLine("Last day: " + day.numberOfDays);
-                        //     int userDay = ReadInt();
-                        //     day.Set(userDay, true);
-                        //     break;
-                        default:
-                            Console.WriteLine("Invalid option");
-                            break;
-                    }
-                }while(menu != 4); //continue to next day if user is done buying/selling
-            }while(day.Next());
-            
-            Console.WriteLine("Thanks for playing!");
-            Console.WriteLine("STATS");
-            Console.WriteLine(account1.ToString(day));
-            int performance = account1.balance - startBalance;
-            if(performance > 0){
-                Console.WriteLine("You made: $" + performance + " dollars!");
-            }else{
-                Console.WriteLine("You lost: $" + -performance + " dollars...");
-            }
-        }
+                Console.WriteLine("How Many Days?");
+                Day day = new Day(ReadInt());
+                
+                List<Stock> stocks = GenerateStocks(day);
+                Account account1 = CreateAccount();
+                int startBalance = account1.balance;
+                Console.WriteLine("Welcome");
+                Console.WriteLine(account1.ToString(day));
 
+                // play game
+                do{
+                    AnnounceStockPrices(day, stocks);
+                    int menu = 0;
+                    do{
+                        menu = GetMenuOption();
+                        
+                        int[] choice = new int[2];
+                        switch(menu){
+                            case 1: // View account
+                                Console.WriteLine(account1.ToString(day));
+                                break;
+                            case 2: // BUY STOCK
+                                Console.WriteLine("Choose stock to buy");
+                                choice = GetStockChoice(stocks, day);
+                                account1.BuyStock(day, stocks[choice[0]], choice[1]);
+                                break;
+                            case 3: // SELL STOCK
+                                Console.WriteLine("Choose stock to sell");
+                                choice = GetStockChoice(account1.stocks, day);
+                                account1.SellStock(day, account1.stocks[choice[0]], choice[1]);
+                                break;
+                            case 4: // HOLD STOCK
+                                Console.WriteLine("And so, time continues on...");
+                                break;
+                            // case 5: // SKIP TO DAY ##DEBUG OPTION##
+                            //     Console.WriteLine("Which day would you like to skip too?");
+                            //     Console.WriteLine("Last day: " + day.numberOfDays);
+                            //     int userDay = ReadInt();
+                            //     day.Set(userDay, true);
+                            //     break;
+                            default:
+                                Console.WriteLine("Invalid option");
+                                break;
+                        }
+                    }while(menu != 4); //continue to next day if user is done buying/selling
+                }while(day.Next());
+                
+                // Perfomance review
+                Console.WriteLine("STATS");
+                Console.WriteLine(account1.ToString(day));
+                int performance = account1.balance - startBalance;
+                if(performance > 0){
+                    Console.WriteLine("You made: $" + performance + " dollars!");
+                }else{
+                    Console.WriteLine("You lost: $" + -performance + " dollars...");
+                }
+                
+                Record record = new Record(account1.name, day.numberOfDays, startBalance, performance);
+                record.ViewRecords();
+                
+                int option = YesNoChoice("Save record?");
+                if(option == 1){
+                    record.Save();
+                }
+                
+                option = YesNoChoice("Play again?");
+                if(option == 2){
+                    playAgain = false;
+                }
+            }while(playAgain);
+            Console.WriteLine("Thanks for playing!");
+        }
         static void AnnounceStockPrices(Day today, List<Stock> stocks){
             Console.WriteLine("======STOCK PRICES PER SHARE======");
             foreach(Stock s in stocks){
@@ -207,6 +223,19 @@
                 valid = true;
             }while(!valid);
             return choice;
+        }
+    
+        static int YesNoChoice(string question){
+            int option = 0;
+            do{
+                Console.WriteLine(question);
+                Console.WriteLine("1\t-\tYES");
+                Console.WriteLine("2\t-\tNO");
+                option = ReadInt();
+                if(option > 2)
+                    Console.WriteLine("Invalid option");
+            }while(option > 2);
+            return option;
         }
     }
 }
