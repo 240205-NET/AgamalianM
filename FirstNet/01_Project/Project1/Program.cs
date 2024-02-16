@@ -248,6 +248,10 @@
             
             valid = false;
             do{
+                if(stocks[choice[0]].Quantity == 0){
+                    Console.WriteLine("You bought them all...");
+                    return new int[] {-1,0};
+                }
                 Console.WriteLine("How many?");
                 choice[1] = ReadInt();
                 if(choice[1] > stocks[choice[0]].Quantity){
