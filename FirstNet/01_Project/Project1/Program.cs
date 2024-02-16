@@ -64,10 +64,13 @@
                 Console.WriteLine(account1.ToString(day));
                 int performance = account1.balance - startBalance;
                 if(performance > 0){
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("You made: $" + performance + " dollars!");
                 }else{
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You lost: $" + -performance + " dollars...");
                 }
+                Console.ResetColor();
                 
                 Record record = new Record(account1.name, day.numberOfDays, startBalance, performance);
                 record.ViewRecords();
@@ -90,6 +93,7 @@
             foreach(Stock s in stocks){
                 Console.Write(s.ToString(today));
                 Console.WriteLine(StockFluctuation(today, s));
+                Console.ResetColor();
             }
         }
         
@@ -103,10 +107,12 @@
             double currentPrice = stock.data.GetPrice(today.day, today.isStartOfDay);
 
             if(previousPrice < currentPrice){
+                Console.ForegroundColor = ConsoleColor.Green;
                 return ("\tUP " + String.Format("{0:##0.##%}",((currentPrice - previousPrice) / previousPrice)));
             }else if(previousPrice == currentPrice){
                 return ("\tSAME 0%");
             }else{
+                Console.ForegroundColor = ConsoleColor.Red;
                 return ("\tDOWN " + String.Format("{0:##0.##%}",((previousPrice - currentPrice) / previousPrice)));
             }
         }
@@ -271,7 +277,9 @@
             int choice = 0;
             int balance = 103;
             do{
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You must sell an asset to trade");
+                Console.ResetColor();
                 Console.WriteLine("\nHow big is this item?");
                 Console.WriteLine("1 - a about the size of an arm");
                 Console.WriteLine("2 - a about the size of a car");
@@ -290,21 +298,21 @@
                     asset.GetName();
                     balance = asset.GetValue();
                     asset.GetAgreement();
-                    Console.WriteLine("\n\nTERMS OF CONTRACT\n you agree to sell: "+ asset.name + "\n for the amoun: "+ balance + "\nDo you agree: "+ asset.agreeToSell);
+                    Console.WriteLine("\n\nTERMS OF CONTRACT\n  you agree to sell: "+ asset.name + "\n  for the amoun: $"+ balance + "\n  I agree: "+ asset.agreeToSell);
                     return balance;
                 case 2:
                     MediumAsset asset1 = new MediumAsset();
                     asset1.GetName();
                     balance = asset1.GetValue();
                     asset1.GetAgreement();
-                    Console.WriteLine("\n\nTERMS OF CONTRACT\n you agree to sell: "+ asset1.name + "\n for the amoun: "+ balance + "\nDo you agree: "+ asset1.agreeToSell);
+                    Console.WriteLine("\n\nTERMS OF CONTRACT\n  you agree to sell: "+ asset1.name + "\n  for the amount: $"+ balance + "\n  I agree: "+ asset1.agreeToSell);
                     return balance;
                 case 3: 
                     LargeAsset asset2 = new LargeAsset();
                     asset2.GetName();
                     balance = asset2.GetValue();
                     asset2.GetAgreement();
-                    Console.WriteLine("\n\nTERMS OF CONTRACT\n you agree to sell: "+ asset2.name + "\n for the amoun: "+ balance + "\nDo you agree: "+ asset2.agreeToSell);
+                    Console.WriteLine("\n\nTERMS OF CONTRACT\n  you agree to sell: "+ asset2.name + "\n  for the amount: $"+ balance + "\n  I agree: "+ asset2.agreeToSell);
                     return balance;
                 default:
                     Console.WriteLine("\n\nI dont know why...or how, but I must give you $100,000.\nHere ya go.");
