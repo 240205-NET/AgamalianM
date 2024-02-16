@@ -277,6 +277,8 @@
         }
     
         static int ConvertAssets(){
+            //I am not proud of this code, it was slapped on at 1:00am but it works
+            //eventually I'll refactor this
             bool valid = false;
             int choice = 0;
             int balance = 103;
