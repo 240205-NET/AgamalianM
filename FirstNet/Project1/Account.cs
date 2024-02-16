@@ -66,28 +66,29 @@ namespace Project1{
             
         }
 
-        public void SellStock(Day day, Stock stock , int amount){
-            int stockPrice = stock.data.GetPrice(day.day, day.isStartOfDay);
+        public void SellStock(Day day, List<Stock> globalStocks, Stock stockToSell, int amount){
+            int stockPrice = stockToSell.data.GetPrice(day.day, day.isStartOfDay);
             int cost = amount * stockPrice;
-            var accountStock = (from s in this.stocks
-                                where s.CompanyName == stock.CompanyName
-                                select s).FirstOrDefault();
+            var stock = (from s in globalStocks
+                                where s.CompanyName == stockToSell.CompanyName
+                                select s).FirstOrDefault();                              
+            
             if(amount < 0){
                 Console.WriteLine("Must be a positive number");
-            }else if(accountStock == null || stocks.Count == 0){
-                Console.WriteLine("You do not own any of this stock");
-            }else if(amount > accountStock.Quantity){
+            }else if(amount > stockToSell.Quantity){
                 Console.WriteLine("Amount not available");
             }else if(stockPrice < 0){
                 Console.WriteLine("Error with day data");
             }else{
-                stocks.Remove(accountStock);
-                if(accountStock.Quantity != amount){
-                    accountStock.Quantity -= amount;
-                    stocks.Add(accountStock);
-                }
+                stocks.Remove(stockToSell);
+                
+                
+                stockToSell.Quantity -= amount;
+                if(stockToSell.Quantity != 0)
+                    stocks.Add(stockToSell);
 
                 stock.Quantity += amount;
+
                 this.balance += cost;
                 Console.WriteLine("Transaction Complete");
             }

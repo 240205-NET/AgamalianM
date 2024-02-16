@@ -39,7 +39,7 @@
                                 if(choice[0] == -1){
                                     break;
                                 }
-                                account1.SellStock(day, account1.stocks[choice[0]], choice[1]);
+                                account1.SellStock(day, stocks, account1.stocks[choice[0]], choice[1]);
                                 break;
                             case 4: // HOLD STOCK
                                 Console.WriteLine("And so, time continues on...");
@@ -96,15 +96,15 @@
             }
             bool previousTimeOfDay = !today.isStartOfDay;
             int previousDay = (today.isStartOfDay) ? today.day - 1 : today.day;
-            int previousPrice = stock.data.GetPrice(previousDay, previousTimeOfDay);
-            int currentPrice = stock.data.GetPrice(today.day, today.isStartOfDay);
+            double previousPrice = stock.data.GetPrice(previousDay, previousTimeOfDay);
+            double currentPrice = stock.data.GetPrice(today.day, today.isStartOfDay);
 
             if(previousPrice < currentPrice){
-                return ("\tUP " + previousPrice / (currentPrice - previousPrice) + "%");
+                return ("\tUP " + String.Format("{0:##0.##%}",((currentPrice - previousPrice) / previousPrice)));
             }else if(previousPrice == currentPrice){
                 return ("\tSAME 0%");
             }else{
-                return ("\tDOWN " + previousPrice / (previousPrice - currentPrice) + "%");
+                return ("\tDOWN " + String.Format("{0:##0.##%}",((previousPrice - currentPrice) / previousPrice)));
             }
         }
     

@@ -56,7 +56,12 @@ namespace Project1{
             sb.AppendLine("Name: " + name);
             sb.AppendLine("\tDays Played: " + daysPlayed);
             sb.AppendLine("\tStarting Balance: $" + startingBalance);
-            sb.AppendLine("\tPerformance: " + performance);
+            if(performance > 0){
+                sb.AppendLine("\tPerformance: Gained $" + performance);
+            }else{
+                sb.AppendLine("\tPerformance: Lost   $" + -performance);
+            }
+            
             return sb.ToString();
         }
     }
