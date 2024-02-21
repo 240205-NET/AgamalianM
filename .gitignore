@@ -5,6 +5,7 @@
 
 # DB connection credentials
 .ConnectionString.txt
+.appsettings.json
 
 # User-specific files
 *.rsuser
